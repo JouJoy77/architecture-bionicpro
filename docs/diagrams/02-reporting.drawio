@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.8.4">
+  <diagram name="BionicPRO: подготовка и получение отчетов" id="02-reporting">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1900" pageHeight="1320" pageScale="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="BionicPRO: подготовка и получение отчетов" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=28;fontColor=#163449;" vertex="1" parent="1">
+          <mxGeometry x="40" y="24" width="1820" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="C4, один регион. Пунктир: связи целевой системы, которые заменены тестовыми данными или не входят в стенд." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=17;fontColor=#506574;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="1820" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="region" value="BionicPRO: региональный контур данных и вычислений" style="rounded=1;arcSize=3;html=1;whiteSpace=wrap;verticalAlign=top;align=left;spacing=20;fillColor=#f6f9fc;strokeColor=#9bafbd;dashed=1;fontSize=19;fontStyle=1;fontColor=#163449;" vertex="1" parent="1">
+          <mxGeometry x="330" y="300" width="1530" height="920" as="geometry" />
+        </mxCell>
+        <mxCell id="commerce-region" value="Магазин и CRM: размещение в том же регионе" style="rounded=1;arcSize=3;html=1;whiteSpace=wrap;verticalAlign=top;align=left;spacing=20;fillColor=#f6f9fc;strokeColor=#9bafbd;dashed=1;fontSize=19;fontStyle=1;fontColor=#163449;" vertex="1" parent="1">
+          <mxGeometry x="330" y="110" width="850" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="buyer" value="&lt;b&gt;Покупатель протеза&lt;/b&gt;&lt;br&gt;[Person]" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#124970;strokeColor=#124970;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="shop" value="&lt;b&gt;Интернет-магазин&lt;/b&gt;&lt;br&gt;[Container: Битрикс24]" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#64748b;strokeColor=#64748b;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="170" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="crm" value="&lt;b&gt;CRM&lt;/b&gt;&lt;br&gt;[Container: Битрикс24]" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#64748b;strokeColor=#64748b;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="770" y="170" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="operator" value="&lt;b&gt;Оператор производства&lt;/b&gt;&lt;br&gt;[Person]" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#124970;strokeColor=#124970;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="170" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pilot" value="&lt;b&gt;Пилот протеза&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;&lt;br&gt;Настройка и свои отчеты" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#124970;strokeColor=#124970;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="app" value="&lt;b&gt;Клиентское приложение&lt;/b&gt;&lt;br&gt;[Container: UI]&lt;br&gt;&lt;br&gt;Стенд: React&lt;br&gt;Целевая система: Android / iOS" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="400" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="&lt;b&gt;API + BFF&lt;/b&gt;&lt;br&gt;[Container: FastAPI]&lt;br&gt;&lt;br&gt;PKCE, сессия, JWT, роль" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="400" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="reports" value="&lt;b&gt;Сервис отчетов&lt;/b&gt;&lt;br&gt;[Container: FastAPI]&lt;br&gt;&lt;br&gt;Проверка JWT и iss + sub&lt;br&gt;GET /reports; JSON / CSV" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="400" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="chip" value="&lt;b&gt;Программа в протезе&lt;/b&gt;&lt;br&gt;[Software System: C++]&lt;br&gt;&lt;br&gt;Распознавание на устройстве&lt;br&gt;Отправка по 4G" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#64748b;strokeColor=#64748b;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="telemetry" value="&lt;b&gt;DB телеметрии&lt;/b&gt;&lt;br&gt;[Container: PostgreSQL]&lt;br&gt;&lt;br&gt;Входные события&lt;br&gt;Отдельно от CRM" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="720" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="crmdb" value="&lt;b&gt;CRM DB (стенд)&lt;/b&gt;&lt;br&gt;[Container: PostgreSQL]&lt;br&gt;&lt;br&gt;Клиенты, iss + sub&lt;br&gt;История владения протезом" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="720" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ch" value="&lt;b&gt;OLAP: готовая витрина&lt;/b&gt;&lt;br&gt;[Container: ClickHouse]&lt;br&gt;&lt;br&gt;Пользователь + протез + сутки UTC&lt;br&gt;Партиция: день; сортировка: iss + sub&lt;br&gt;Данные и готовность публикуются вместе" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="720" width="440" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="airflow" value="&lt;b&gt;Планировщик ETL&lt;/b&gt;&lt;br&gt;[Container: Apache Airflow]&lt;br&gt;&lt;br&gt;Ежедневно 00:00 UTC, catchup&lt;br&gt;Extract -&amp;gt; join -&amp;gt; aggregate -&amp;gt; publish" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#117da2;strokeColor=#117da2;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1030" width="420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cli" value="&lt;b&gt;CLI для ML&lt;/b&gt;&lt;br&gt;[Container: Python]&lt;br&gt;&lt;br&gt;Отдельные права на датасеты" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#64748b;strokeColor=#64748b;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="990" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ml" value="&lt;b&gt;ML-инженер&lt;/b&gt;&lt;br&gt;[Person]" style="rounded=1;arcSize=10;html=1;whiteSpace=wrap;fillColor=#124970;strokeColor=#124970;fontColor=#ffffff;fontSize=16;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="1130" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-ml-cli-72" value="" edge="1" parent="1" source="ml" target="cli" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0.0;entryX=0.5;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-ml-cli-72-label" value="Запрос данных" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1519.3" y="1092" width="101.39999999999999" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-buyer-shop-75" value="" edge="1" parent="1" source="buyer" target="shop" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-buyer-shop-75-label" value="Заказ / оплата" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="260.4" y="189" width="109.2" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-shop-crm-78" value="" edge="1" parent="1" source="shop" target="crm" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-shop-crm-78-label" value="Заказ, HTTPS" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="653.2" y="189" width="93.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-operator-crm-81" value="" edge="1" parent="1" source="operator" target="crm" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.0;exitY=0.5;entryX=1.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-operator-crm-81-label" value="Учет производства" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1098.7" y="189" width="132.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-crm-crmdb-84" value="" edge="1" parent="1" source="crm" target="crmdb" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="280" />
+              <mxPoint x="1210" y="280" />
+              <mxPoint x="1210" y="685" />
+              <mxPoint x="1000" y="685" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-crm-crmdb-84-label" value="Запись в CRM DB" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1163.5" y="622" width="117.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-pilot-app-87" value="" edge="1" parent="1" source="pilot" target="app" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.4583333333333333;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-pilot-app-87-label" value="HTTPS" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="285.0" y="424" width="60" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-pilot-chip-90" value="" edge="1" parent="1" source="pilot" target="chip" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.18181818181818182;exitY=1.0;entryX=0.16666666666666666;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-pilot-chip-90-label" value="Миосигналы" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="41.0" y="652" width="78.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-app-chip-93" value="" edge="1" parent="1" source="app" target="chip" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.2;exitY=1.0;entryX=0.8333333333333334;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="560" />
+              <mxPoint x="240" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-app-chip-93-label" value="Настройка протеза (моб.)" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="276.4" y="547" width="187.2" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-app-api-96" value="" edge="1" parent="1" source="app" target="api" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.4583333333333333;entryX=0.0;entryY=0.4583333333333333;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-app-api-96-label" value="Сессия; GET /reports" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="682.0" y="424" width="156.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-api-reports-99" value="" edge="1" parent="1" source="api" target="reports" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.4583333333333333;entryX=0.0;entryY=0.4583333333333333;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-api-reports-99-label" value="Access JWT" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1201.0" y="424" width="78.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-reports-ch-102" value="" edge="1" parent="1" source="reports" target="ch" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=0.7333333333333333;exitY=1.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-reports-ch-102-label" value="SELECT: iss + sub, период" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1452.5" y="607" width="195.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-chip-api-105" value="" edge="1" parent="1" source="chip" target="api" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0.0;entryX=0.16666666666666666;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="600" />
+              <mxPoint x="900" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-chip-api-105-label" value="Телеметрия: HTTPS / 4G" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="514.2" y="587" width="171.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-api-telemetry-108" value="" edge="1" parent="1" source="api" target="telemetry" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="650" />
+              <mxPoint x="520" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-api-telemetry-108-label" value="Прием и запись событий" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="664.2" y="637" width="171.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-airflow-telemetry-111" value="" edge="1" parent="1" source="airflow" target="telemetry" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=0.16666666666666666;exitY=0.0;entryX=0.5;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="940" />
+              <mxPoint x="520" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-airflow-telemetry-111-label" value="SELECT, read-only" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="553.7" y="927" width="132.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-airflow-crmdb-114" value="" edge="1" parent="1" source="airflow" target="crmdb" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=0.6190476190476191;exitY=0.0;entryX=0.5;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-airflow-crmdb-114-label" value="SELECT, read-only" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="933.7" y="927" width="132.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-airflow-ch-117" value="" edge="1" parent="1" source="airflow" target="ch" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.6;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="1095" />
+              <mxPoint x="1250" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-airflow-ch-117-label" value="Готовая суточная партиция" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1242.5" y="937" width="195.0" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cli-ch-120" value="" edge="1" parent="1" source="cli" target="ch" style="edgeStyle=none;html=1;rounded=0;endArrow=block;strokeWidth=2;strokeColor=#466074;fontSize=14;fontColor=#29485d;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0.0;entryX=0.5454545454545454;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cli-ch-120-label" value="SELECT, отдельная роль" style="text;html=1;align=center;verticalAlign=middle;fillColor=#ffffff;fontSize=14;fontColor=#29485d;" vertex="1" parent="1">
+          <mxGeometry x="1484.2" y="917" width="171.6" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="scope" value="Вход и сессии см. на схеме 01. В стенде seed заполняет CRM DB и DB телеметрии; API приема телеметрии и ML CLI не реализованы." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=17;fontColor=#506574;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1240" width="1820" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

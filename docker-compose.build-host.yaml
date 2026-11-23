@@ -1,0 +1,24 @@
+# Вариант сборки для Linux, если DNS внутри Docker BuildKit недоступен.
+# Сеть работающих контейнеров не меняется.
+services:
+  api:
+    build:
+      network: host
+  reports:
+    build:
+      network: host
+  frontend:
+    build:
+      network: host
+  seed:
+    build:
+      network: host
+  airflow-init:
+    build:
+      network: host
+  airflow-web:
+    build:
+      network: host
+  airflow-scheduler:
+    build:
+      network: host

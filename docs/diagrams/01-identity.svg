@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1180" viewBox="0 0 1800 1180">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#466074"/></marker></defs>
+<rect width="1800" height="1180" fill="white"/>
+<text x="40" y="53.333333333333336" font-family="Arial,sans-serif" font-size="28" fill="#163449">BionicPRO: вход и локальное хранение данных</text>
+<text x="40" y="91.66666666666667" font-family="Arial,sans-serif" font-size="17" fill="#506574">C4, целевая архитектура. Отдельное развертывание в каждой стране; общий протокол входа для приложений.</text>
+<rect x="40" y="140" width="220" height="110" rx="10" fill="#124970"/>
+<text x="150.0" y="177.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Пилот протеза</text>
+<text x="150.0" y="200.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Person]</text>
+<text x="150.0" y="223.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Вход и свои отчеты</text>
+<rect x="360" y="140" width="290" height="110" rx="10" fill="#117da2"/>
+<text x="505.0" y="177.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Веб-интерфейс</text>
+<text x="505.0" y="200.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: React]</text>
+<text x="505.0" y="223.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Только cookie с ID сессии</text>
+<text x="800" y="169.0" font-family="Arial,sans-serif" font-size="18" fill="#506574">Пользователь входит по адресу своего представительства.</text>
+<text x="800" y="213.66666666666666" font-family="Arial,sans-serif" font-size="17" fill="#506574">Страна учетной записи определяется по договору до входа.</text>
+<polyline points="260,195 360,195" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="280.0" y="169" width="60" height="24" rx="3" fill="white"/>
+<text x="310" y="186" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">HTTPS</text>
+<rect x="40" y="330" width="830" height="760" rx="12" fill="#f6f9fc" stroke="#9bafbd" stroke-dasharray="7 5"/>
+<text x="60" y="362" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#163449">Россия: данные, ключи и резервные копии в РФ</text>
+<rect x="80" y="420" width="300" height="130" rx="10" fill="#117da2"/>
+<text x="230.0" y="455.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">API + BFF</text>
+<text x="230.0" y="478.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: FastAPI]</text>
+<text x="230.0" y="501.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">PKCE S256, state, nonce</text>
+<text x="230.0" y="524.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Проверка сессии и прав</text>
+<rect x="490" y="420" width="330" height="130" rx="10" fill="#117da2"/>
+<text x="655.0" y="455.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Региональный Keycloak</text>
+<text x="655.0" y="478.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: OIDC broker]</text>
+<text x="655.0" y="501.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Единый протокол для приложений</text>
+<text x="655.0" y="524.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Федерация и внешние IdP</text>
+<rect x="80" y="680" width="300" height="110" rx="10" fill="#117da2"/>
+<text x="230.0" y="717.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Серверные сессии</text>
+<text x="230.0" y="740.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: Redis]</text>
+<text x="230.0" y="763.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Токены зашифрованы, TTL</text>
+<rect x="490" y="680" width="330" height="110" rx="10" fill="#117da2"/>
+<text x="655.0" y="717.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Учетные записи Keycloak</text>
+<text x="655.0" y="740.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: PostgreSQL]</text>
+<text x="655.0" y="763.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Локальные связи, роли, сессии</text>
+<rect x="80" y="930" width="300" height="110" rx="10" fill="#117da2"/>
+<text x="230.0" y="967.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Сервис отчетов</text>
+<text x="230.0" y="990.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: FastAPI]</text>
+<text x="230.0" y="1013.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Отчеты только по iss + sub</text>
+<rect x="490" y="930" width="330" height="110" rx="10" fill="#64748b"/>
+<text x="655.0" y="955.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">IdP представительства</text>
+<text x="655.0" y="978.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Software System: внешний IdP]</text>
+<text x="655.0" y="1001.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">OIDC или SAML</text>
+<text x="655.0" y="1024.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Учетные записи хранятся в стране</text>
+<polyline points="380,480 490,480" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="392.1" y="448" width="85.8" height="24" rx="3" fill="white"/>
+<text x="435" y="465" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">OIDC + PKCE</text>
+<polyline points="230,550 230,680" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="159.8" y="603" width="140.4" height="24" rx="3" fill="white"/>
+<text x="230" y="620" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">ID сессии / токены</text>
+<polyline points="655,550 655,680" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="619.9" y="603" width="70.2" height="24" rx="3" fill="white"/>
+<text x="655" y="620" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">SQL / TLS</text>
+<polyline points="80,500 60,500 60,860 230,860 230,930" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="123.2" y="848" width="93.6" height="24" rx="3" fill="white"/>
+<text x="170" y="865" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">Access token</text>
+<polyline points="820,490 845,490 845,860 655,860 655,930" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="654.8" y="848" width="140.4" height="24" rx="3" fill="white"/>
+<text x="725" y="865" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">OIDC / SAML по TLS</text>
+<rect x="930" y="330" width="830" height="760" rx="12" fill="#f6f9fc" stroke="#9bafbd" stroke-dasharray="7 5"/>
+<text x="950" y="362" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#163449">Новая страна: отдельный контур в этой стране</text>
+<rect x="970" y="420" width="300" height="130" rx="10" fill="#117da2"/>
+<text x="1120.0" y="455.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">API + BFF</text>
+<text x="1120.0" y="478.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: FastAPI]</text>
+<text x="1120.0" y="501.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">PKCE S256, state, nonce</text>
+<text x="1120.0" y="524.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Проверка сессии и прав</text>
+<rect x="1380" y="420" width="330" height="130" rx="10" fill="#117da2"/>
+<text x="1545.0" y="455.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Региональный Keycloak</text>
+<text x="1545.0" y="478.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: OIDC broker]</text>
+<text x="1545.0" y="501.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Единый протокол для приложений</text>
+<text x="1545.0" y="524.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Федерация и внешние IdP</text>
+<rect x="970" y="680" width="300" height="110" rx="10" fill="#117da2"/>
+<text x="1120.0" y="717.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Серверные сессии</text>
+<text x="1120.0" y="740.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: Redis]</text>
+<text x="1120.0" y="763.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Токены зашифрованы, TTL</text>
+<rect x="1380" y="680" width="330" height="110" rx="10" fill="#117da2"/>
+<text x="1545.0" y="717.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Учетные записи Keycloak</text>
+<text x="1545.0" y="740.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: PostgreSQL]</text>
+<text x="1545.0" y="763.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Локальные связи, роли, сессии</text>
+<rect x="970" y="930" width="300" height="110" rx="10" fill="#117da2"/>
+<text x="1120.0" y="967.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Сервис отчетов</text>
+<text x="1120.0" y="990.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Container: FastAPI]</text>
+<text x="1120.0" y="1013.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Отчеты только по iss + sub</text>
+<rect x="1380" y="930" width="330" height="110" rx="10" fill="#64748b"/>
+<text x="1545.0" y="955.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">IdP представительства</text>
+<text x="1545.0" y="978.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="normal" fill="white">[Software System: внешний IdP]</text>
+<text x="1545.0" y="1001.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">OIDC или SAML</text>
+<text x="1545.0" y="1024.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="normal" fill="white">Учетные записи хранятся в стране</text>
+<polyline points="1270,480 1380,480" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1282.1" y="448" width="85.8" height="24" rx="3" fill="white"/>
+<text x="1325" y="465" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">OIDC + PKCE</text>
+<polyline points="1120,550 1120,680" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1049.8" y="603" width="140.4" height="24" rx="3" fill="white"/>
+<text x="1120" y="620" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">ID сессии / токены</text>
+<polyline points="1545,550 1545,680" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1509.9" y="603" width="70.2" height="24" rx="3" fill="white"/>
+<text x="1545" y="620" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">SQL / TLS</text>
+<polyline points="970,500 950,500 950,860 1120,860 1120,930" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1013.2" y="848" width="93.6" height="24" rx="3" fill="white"/>
+<text x="1060" y="865" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">Access token</text>
+<polyline points="1710,490 1735,490 1735,860 1545,860 1545,930" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1544.8" y="848" width="140.4" height="24" rx="3" fill="white"/>
+<text x="1615" y="865" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">OIDC / SAML по TLS</text>
+<polyline points="505,250 505,300 840,300 840,390 230,390 230,420" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="553.0" y="288" width="234.0" height="24" rx="3" fill="white"/>
+<text x="670" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">HTTPS; HttpOnly session cookie</text>
+<polyline points="600,250 600,270 1730,270 1730,390 1120,390 1120,420" fill="none" stroke="#466074" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1260.3" y="258" width="179.4" height="24" rx="3" fill="white"/>
+<text x="1350" y="275" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#29485d">HTTPS; отдельная сессия</text>
+<text x="40" y="1134.6666666666667" font-family="Arial,sans-serif" font-size="17" fill="#506574">Стенд: один Keycloak с тестовыми пользователями. Внешние IdP и второй регион показаны как проектное решение.</text>
+</svg>
