@@ -1,75 +1,148 @@
-import React, { useState } from 'react';
-import { useKeycloak } from '@react-keycloak/web';
+import React, { useEffect, useState } from 'react';
 
-const ReportPage: React.FC = () => {
-  const { keycloak, initialized } = useKeycloak();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+type Session = { username: string; can_report: boolean; csrf_token: string };
 
-  const downloadReport = async () => {
-    if (!keycloak?.token) {
-      setError('Not authenticated');
-      return;
+async function errorMessage(response: Response): Promise<string> {
+  try {
+    const body = await response.json();
+    if (body.detail?.code === 'period_not_ready') {
+      return `Данные еще не готовы за: ${body.detail.missing_dates.join(', ')}. Выберите другой период.`;
     }
+    if (typeof body.detail === 'string') return body.detail;
+  } catch (_) { /* Показываем понятное сообщение и для ответа прокси без JSON. */ }
+  return `Не удалось получить отчет (код ${response.status}). Попробуйте позже.`;
+}
 
-    try {
-      setLoading(true);
-      setError(null);
+export default function ReportPage() {
+  const [session, setSession] = useState<Session | null>(null);
+  const [initialized, setInitialized] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
+  const [available, setAvailable] = useState<string[]>([]);
+  const [start, setStart] = useState('');
+  const [end, setEnd] = useState('');
 
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/reports`, {
-        headers: {
-          'Authorization': `Bearer ${keycloak.token}`
+  useEffect(() => {
+    let active = true;
+    async function load() {
+      try {
+        const response = await fetch('/auth/session', { credentials: 'same-origin' });
+        if (response.status === 401) return;
+        if (!response.ok) throw new Error(await errorMessage(response));
+        const current: Session = await response.json();
+        if (!active) return;
+        setSession(current);
+        if (current.can_report) {
+          const coverage = await fetch('/reports/availability', { credentials: 'same-origin' });
+          if (!coverage.ok) throw new Error(await errorMessage(coverage));
+          const dates: string[] = (await coverage.json()).available_dates;
+          if (!active) return;
+          setAvailable(dates);
+          setStart(dates[0] || '');
+          setEnd(dates[0] || '');
         }
-      });
-
-      
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setLoading(false);
+      } catch (err) {
+        if (active) setError(err instanceof Error ? err.message : 'Не удалось загрузить приложение');
+      } finally {
+        if (active) setInitialized(true);
+      }
     }
-  };
+    void load();
+    return () => { active = false; };
+  }, []);
 
-  if (!initialized) {
-    return <div>Loading...</div>;
+  async function downloadReport() {
+    setBusy(true);
+    setError('');
+    setNotice('');
+    try {
+      const params = new URLSearchParams({ start_date: start, end_date: end, format: 'csv' });
+      const response = await fetch(`/reports?${params}`, { credentials: 'same-origin' });
+      if (response.status === 401) setSession(null);
+      if (!response.ok) throw new Error(await errorMessage(response));
+      const url = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `bionicpro_${start}_${end}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setNotice('Отчет скачан. Его можно открыть в приложении для работы с таблицами.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось скачать отчет');
+    } finally {
+      setBusy(false);
+    }
   }
 
-  if (!keycloak.authenticated) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <button
-          onClick={() => keycloak.login()}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Login
-        </button>
-      </div>
-    );
+  async function logout() {
+    if (!session) return;
+    setBusy(true);
+    setError('');
+    try {
+      const response = await fetch('/auth/logout', {
+        method: 'POST', credentials: 'same-origin', headers: { 'X-CSRF-Token': session.csrf_token },
+      });
+      if (!response.ok && response.status !== 401) throw new Error(await errorMessage(response));
+      setSession(null);
+      setAvailable([]);
+      setNotice('');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось выйти');
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6">Usage Reports</h1>
-        
-        <button
-          onClick={downloadReport}
-          disabled={loading}
-          className={`px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-        >
-          {loading ? 'Generating Report...' : 'Download Report'}
-        </button>
-
-        {error && (
-          <div className="mt-4 p-4 bg-red-100 text-red-700 rounded">
-            {error}
-          </div>
+    <main>
+      <section className="report-card" aria-labelledby="title">
+        <p className="brand">BionicPRO</p>
+        <h1 id="title">Отчет о работе протеза</h1>
+        {!initialized ? <p role="status">Загружаем данные...</p> : !session ? (
+          <>
+            <p>Войдите в личный кабинет, чтобы скачать данные о своих протезах.</p>
+            <a className="button" href="/auth/login">Войти</a>
+          </>
+        ) : (
+          <>
+            <div className="account">
+              <span>Вы вошли как {session.username}</span>
+              <button className="secondary" onClick={logout} disabled={busy}>Выйти</button>
+            </div>
+            {!session.can_report ? <p>Для этой учетной записи отчеты недоступны.</p> : (
+              <>
+                <p>В отчете собраны движения, время отклика и заряд батареи по каждому вашему протезу.</p>
+                {available.length === 0 ? (
+                  <p>Отчеты пока не подготовлены. Попробуйте позже.</p>
+                ) : (
+                  <form onSubmit={(event) => { event.preventDefault(); void downloadReport(); }}>
+                    <p className="hint">Последний подготовленный день: {available[0]}. Даты и события указаны по UTC.</p>
+                    <div className="dates">
+                      <label>Начало периода
+                        <input type="date" value={start} required min={available[available.length - 1]}
+                          max={available[0]} onChange={(event) => setStart(event.target.value)} />
+                      </label>
+                      <label>Конец периода
+                        <input type="date" value={end} required min={start}
+                          max={available[0]} onChange={(event) => setEnd(event.target.value)} />
+                      </label>
+                    </div>
+                    <p className="hint">Можно выбрать до 93 дней. Если за часть периода данные еще не готовы, мы сообщим об этом.</p>
+                    <button className="button" type="submit" disabled={busy || !start || !end}>
+                      {busy ? 'Подготавливаем файл...' : 'Скачать отчет CSV'}
+                    </button>
+                  </form>
+                )}
+              </>
+            )}
+          </>
         )}
-      </div>
-    </div>
+        {error && <p className="error" role="alert">{error}</p>}
+        {notice && <p className="notice" role="status">{notice}</p>}
+      </section>
+    </main>
   );
-};
-
-export default ReportPage;
+}
